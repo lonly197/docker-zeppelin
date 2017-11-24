@@ -31,8 +31,7 @@ RUN        set -x \
     rm -rf ${ZEPPELIN_HOME}/zeppelin-${VERSION}-bin-all && \
     rm -rf *.tgz && \
     rm -rf /var/cache/apk/* \
-    && rm -rf /tmp/nativelib \
-    && apk del .builddeps 
+    && rm -rf /tmp/nativelib 
 EXPOSE     8080 8443
 VOLUME     ${ZEPPELIN_HOME}/logs \
     ${ZEPPELIN_HOME}/notebook
