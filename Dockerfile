@@ -1,4 +1,4 @@
-FROM       alpine
+FROM       alpine:3.6
 
 ARG        DIST_MIRROR=http://archive.apache.org/dist/zeppelin
 ARG        VERSION=0.7.3
@@ -17,7 +17,12 @@ LABEL \
 ENV        ZEPPELIN_HOME=/opt/zeppelin \
     JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk \
     PATH=$PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin
-RUN        apk update && apk add --no-cache --upgrade bash curl jq openjdk8 && \
+RUN        set -x \
+    ## fix 'ERROR: http://dl-cdn.alpinelinux.org/alpine/v3.6/main: BAD archive'
+    && echo http://mirrors.aliyun.com/alpine/v3.6/main/ >> /etc/apk/repositories \
+    && echo http://mirrors.aliyun.com/alpine/v3.6/community/>> /etc/apk/repositories \
+    && apk update \
+    && apk add --no-cache --upgrade bash curl jq openjdk8 && \
     mkdir -p ${ZEPPELIN_HOME} && \
     ## download zeppelin package
     curl ${DIST_MIRROR}/zeppelin-${VERSION}/zeppelin-${VERSION}-bin-all.tgz | tar xvz -C ${ZEPPELIN_HOME} && \
@@ -27,7 +32,7 @@ RUN        apk update && apk add --no-cache --upgrade bash curl jq openjdk8 && \
     rm -rf *.tgz && \
     rm -rf /var/cache/apk/* \
     && rm -rf /tmp/nativelib \
-    && apk del .builddeps
+    && apk del .builddeps 
 EXPOSE     8080 8443
 VOLUME     ${ZEPPELIN_HOME}/logs \
     ${ZEPPELIN_HOME}/notebook
