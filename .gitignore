@@ -1,1 +1,16 @@
-.vscode/*
+# Visual Studio cache/options directory
+.vs/
+.vscode/
+
+# JetBrains Rider
+.idea/
+
+# DS
+.DS_Store
+
+# Backup file
+*.bak
+
+# Temp
+*.tmp
+tmp
