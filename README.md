@@ -53,20 +53,8 @@ Ensure the following pre-requisites are met (due to some blocker bugs in earlier
 
 - Docker 1.10+
 - Docker Machine 0.6.0+
-- Kitematic 0.12
 
 (all downloadable as a single [Docker Toolbox](https://www.docker.com/products/docker-toolbox) package as well)
-
-
-# How to use from Kitematic
-
-1. Start Kitematic
-2. Enter `xemuliam` in serach box
-3. Choose `zeppelin-base` image
-4. Click `Create` button
-
-Kitematic will assign all ports and you'll be able to run NiFi web-interface directly from Kitematic.
-
 
 # How to use from Docker CLI
 
