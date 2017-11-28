@@ -52,7 +52,6 @@ Please use corresponding branches from this repo to play with code.
 Ensure the following pre-requisites are met (due to some blocker bugs in earlier versions). As of today, the latest Docker Toolbox and Homebrew are fine.
 
 - Docker 1.10+
-- Docker Machine 0.6.0+
 
 (all downloadable as a single [Docker Toolbox](https://www.docker.com/products/docker-toolbox) package as well)
 
@@ -60,7 +59,9 @@ Ensure the following pre-requisites are met (due to some blocker bugs in earlier
 
 1. Start Docker Quickstart Terminal
 2. Run command  `docker run -d -p 8080:8080 -p 8443:8443 lonly/docker-zeppelin`
-3. Check Docker machine IP  `docker-machine ls`
+3. Check Docker Contianer Running Status `docker ps -a`
 4. Use IP from previous step in address bar of your favorite browser, e.g. ` http://192.168.1.1:8080/#/`
 
-# Enjoy! :)
+# Contact me
+
+- Email: <lonly197@gamil.com>
