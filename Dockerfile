@@ -39,6 +39,8 @@ RUN   set -x \
 	## Zip Chinesization war
 	&& jar -cvfM0 zeppelin-web-${ZEPPELIN_VERSION}.war ./* \
 	&& mv zeppelin-web-${ZEPPELIN_VERSION}.war ${ZEPPELIN_HOME}/ \
+    && cd ../ \
+    && rm -rf webapp \
     ## Cleanup
     && rm -rf *.tgz *.zip *.tar \
     && rm -rf /tmp/*
