@@ -38,7 +38,7 @@ docker build \
 All below volumes can be mounted to docker host machine folders or shared folders to easy maintain data inside them. 
 
 Zeppelin-specific:
-opt/zeppelin/conf
+/opt/zeppelin/conf
 /opt/zeppelin/logs
 /opt/zeppelin/notebook
 /opt/zeppelin/local-repo
