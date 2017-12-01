@@ -14,3 +14,24 @@
 # Temp
 *.tmp
 tmp
+
+# Git
+.git
+.gitignore
+
+# License
+LICENSE
+
+# Version
+VERSION
+
+# Doc
+README.md
+Changelog.md
+docs
+
+# CI
+Makefile
+
+# Docker build
+docker-compose.yml
