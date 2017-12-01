@@ -1,6 +1,5 @@
-FROM  alpine:3.6
+FROM  apache/zeppelin:0.7.3
 
-ARG  DIST_MIRROR=http://archive.apache.org/dist/zeppelin
 ARG  VERSION=0.7.3
 ARG  VCS_REF
 
@@ -11,7 +10,7 @@ LABEL \
     org.label-schema.license="Apache License 2.0" \
     org.label-schema.name="lonly/docker-zeppelin" \
     org.label-schema.url="https://github.com/lonly197" \
-    org.label-schema.description="Basic and clean Docker image for Apache Zeppelin, based on Alpine OpenJDK." \
+    org.label-schema.description="This is a full Docker image for Apache Zeppelin, based on Official image." \
     org.label-schema.vcs-ref=$VCS_REF \
     org.label-schema.vcs-url="https://github.com/lonly197/docker-zeppelin" \
     org.label-schema.vcs-type="Git" \
@@ -19,24 +18,16 @@ LABEL \
     org.label-schema.version=$VERSION \
     org.label-schema.schema-version="1.0"
 
-ENV   ZEPPELIN_HOME=/opt/zeppelin \
-    JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk \
-    PATH=$PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin
+# Define environment
+ENV   ZEPPELIN_HOME=/opt/zeppelin
+
 RUN   set -x \
-    ## fix 'ERROR: http://dl-cdn.alpinelinux.org/alpine/v3.6/main: BAD archive'
-    && echo http://mirrors.aliyun.com/alpine/v3.6/main/ >> /etc/apk/repositories \
-    && echo http://mirrors.aliyun.com/alpine/v3.6/community/>> /etc/apk/repositories \
-    && apk update \
-    && apk add --no-cache --upgrade bash curl jq openjdk8 && \
-    mkdir -p ${ZEPPELIN_HOME} && \
-    ## download zeppelin package
-    curl ${DIST_MIRROR}/zeppelin-${VERSION}/zeppelin-${VERSION}-bin-all.tgz | tar xvz -C ${ZEPPELIN_HOME} && \
-    mv ${ZEPPELIN_HOME}/zeppelin-${VERSION}-bin-all/* ${ZEPPELIN_HOME} && \
+    ## Make work dir
+    && mkdir -p /opt \
+    && ln -s /zeppelin ${ZEPPELIN_HOME} \
     ## cleanup
-    rm -rf ${ZEPPELIN_HOME}/zeppelin-${VERSION}-bin-all && \
-    rm -rf *.tgz && \
-    rm -rf /var/cache/apk/* \
-    && rm -rf /tmp/nativelib 
+    && rm -rf *.tgz *.zip *.tar \
+    && rm -rf /tmp/*
 
 # Define port
 EXPOSE  8080 8443
