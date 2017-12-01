@@ -1,6 +1,6 @@
-FROM  apache/zeppelin:0.7.3
+FROM  lonly/docker-zeppelin:0.7.3
 
-ARG  VERSION=0.7.3
+ARG  VERSION=0.7.3-cn
 ARG  VCS_REF
 
 LABEL \
@@ -18,29 +18,30 @@ LABEL \
     org.label-schema.version=$VERSION \
     org.label-schema.schema-version="1.0"
 
-# Define environment
-ENV   ZEPPELIN_HOME=/opt/zeppelin
-
+# Install package
 RUN   set -x \
-    ## Make work dir
-    && mkdir -p /opt \
-    && ln -s /zeppelin ${ZEPPELIN_HOME} \
-    ## cleanup
+    ## Define var
+    && ZEPPELIN_VERSION=0.7.3 \
+    ## Chinesize zeppelin web
+    ### Enter work dir
+	&& cd ${ZEPPELIN_HOME} \
+	## Unzip zeppelin web war	
+	&& mkdir -p webapp \
+	&& unzip -oq zeppelin-web-${ZEPPELIN_VERSION}.war -d webapp \
+	## Remove old war
+	&& rm -rf zeppelin-web-${ZEPPELIN_VERSION}.war \
+	## Enter webapp dir
+	&& cd ./webapp/ \
+	## Download Chinesization zeppelin web tar
+	&& wget -q -c https://github.com/lonly197/zeppelin-web/archive/${VERSION}.tar.gz -O ${VERSION}.tar.gz \
+	&& tar xvf ${VERSION}.tar.gz --strip 1 \
+	&& rm -rf ${VERSION}.tar.gz \
+	## Zip Chinesization war
+	&& jar -cvfM0 zeppelin-web-${ZEPPELIN_VERSION}.war ./* \
+	&& mv zeppelin-web-${ZEPPELIN_VERSION}.war ${ZEPPELIN_HOME}/ \
+    ## Cleanup
     && rm -rf *.tgz *.zip *.tar \
     && rm -rf /tmp/*
 
-# Define port
-EXPOSE  8080 8443
-
-# Define volumn
-VOLUME ${ZEPPELIN_HOME}/conf \
-	${ZEPPELIN_HOME}/logs \
-	${ZEPPELIN_HOME}/notebook \
-	${ZEPPELIN_HOME}/local-repo \
-	${ZEPPELIN_HOME}/helium
-
-# Define work dir
-WORKDIR  ${ZEPPELIN_HOME}
-
 # Start Zeppelin Server
-CMD  ./bin/zeppelin.sh run
+CMD	 ${ZEPPELIN_HOME}/bin/zeppelin.sh run
