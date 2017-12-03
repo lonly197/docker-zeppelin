@@ -22,7 +22,7 @@ Deployment options out of the box:
 ```bash
 docker build \
 --rm \
--t lonly/docker-zeppelin:0.7.3-cn \
+-t lonly/docker-zeppelin:0.7.2-cn \
 --build-arg VCS_REF=`git rev-parse --short HEAD` \
 --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` .
 ```
@@ -47,9 +47,9 @@ opt/zeppelin/conf
 
 ## Official Documentation and Guides
 
-- [Overview](http://zeppelin.apache.org/docs/0.7.03)
-- [Quick Start](http://zeppelin.apache.org/docs/0.7.3/install/install.html)
-- [Interpreters](http://zeppelin.apache.org/docs/0.7.3/manual/interpreters.html)
+- [Overview](http://zeppelin.apache.org/docs/0.7.2)
+- [Quick Start](http://zeppelin.apache.org/docs/0.7.2/install/install.html)
+- [Interpreters](http://zeppelin.apache.org/docs/0.7.2/manual/interpreters.html)
 - [Wiki](https://cwiki.apache.org/confluence/display/ZEPPELIN/Zeppelin+Home)
 
 ## Usage
@@ -70,7 +70,7 @@ Ensure the following pre-requisites are met (due to some blocker bugs in earlier
 ## How to use from Docker CLI
 
 1. Start Docker Quickstart Terminal
-2. Run command  `docker run -d -p 8080:8080 -p 8443:8443 --name zeppelin lonly/docker-zeppelin:0.7.3-cn`
+2. Run command  `docker run -d -p 8080:8080 -p 8443:8443 --name zeppelin lonly/docker-zeppelin:0.7.2-cn`
 3. Check Docker Contianer Running Status `docker ps -a`
 4. Use IP from previous step in address bar of your favorite browser, e.g. ` http://192.168.1.1:8080/#/`
 

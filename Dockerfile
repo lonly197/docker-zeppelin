@@ -1,6 +1,6 @@
-FROM  lonly/docker-zeppelin:0.7.3
+FROM  lonly/docker-zeppelin:0.7.2
 
-ARG  VERSION=0.7.3-cn
+ARG  VERSION=0.7.2-cn
 ARG  VCS_REF
 
 LABEL \
