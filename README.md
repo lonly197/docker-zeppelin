@@ -47,9 +47,9 @@ opt/zeppelin/conf
 
 ## Official Documentation and Guides
 
-- [Overview](http://zeppelin.apache.org/docs/0.7.03)
-- [Quick Start](http://zeppelin.apache.org/docs/0.7.3/install/install.html)
-- [Interpreters](http://zeppelin.apache.org/docs/0.7.3/manual/interpreters.html)
+- [Overview](http://zeppelin.apache.org/docs/0.7.2)
+- [Quick Start](http://zeppelin.apache.org/docs/0.7.2/install/install.html)
+- [Interpreters](http://zeppelin.apache.org/docs/0.7.2/manual/interpreters.html)
 - [Wiki](https://cwiki.apache.org/confluence/display/ZEPPELIN/Zeppelin+Home)
 
 ## Usage
