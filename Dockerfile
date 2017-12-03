@@ -21,7 +21,7 @@ LABEL \
 # Install package
 RUN   set -x \
     ## Define var
-    && ZEPPELIN_VERSION=0.7.3 \
+    && ZEPPELIN_VERSION=0.7.2 \
     ## Chinesize zeppelin web
     ### Enter work dir
 	&& cd ${ZEPPELIN_HOME} \
