@@ -19,7 +19,7 @@
 
 - ![Version](https://images.microbadger.com/badges/version/lonly/docker-zeppelin:0.7.3-cn.svg) ![Layers](https://images.microbadger.com/badges/image/lonly/docker-zeppelin:0.7.3-cn.svg) __0.7.3-cn__
 
-- ![Version](https://images.microbadger.com/badges/version/lonly/docker-zeppelin:0.7.3-cn-special.svg) ![Layers](https://images.microbadger.com/badges/image/lonly/docker-zeppelin:0.7.3-cn-special.svg) __0.7.3-cn-special__
+- ![Version](https://images.microbadger.com/badges/version/lonly/docker-zeppelin:0.7.3-special-cn.svg) ![Layers](https://images.microbadger.com/badges/image/lonly/docker-zeppelin:0.7.3-special-cn.svg) __0.7.3-special-cn__
 
 - ![Version](https://images.microbadger.com/badges/version/lonly/zeppelin:0.7.2.svg) ![Layers](https://images.microbadger.com/badges/image/lonly/docker-zeppelin:0.7.2.svg) __0.7.2__
 
