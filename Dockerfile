@@ -1,6 +1,6 @@
-FROM  apache/zeppelin:0.7.3
+FROM  apache/zeppelin:0.7.2
 
-ARG  VERSION=0.7.3
+ARG  VERSION=0.7.2
 ARG  VCS_REF
 
 LABEL \
