@@ -1,6 +1,7 @@
 # docker-zeppelin
 
 This is a full [Docker](https://www.docker.com/what-docker) image for [Apache Zeppelin](http://zeppelin.apache.org), based on [Officical Image](https://hub.docker.com/r/apache/zeppelin/).
+
                         ##         .
                   ## ## ##        ==
                ## ## ## ## ##    ===
