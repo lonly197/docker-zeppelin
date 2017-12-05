@@ -2,6 +2,7 @@ FROM  lonly/docker-zeppelin:0.7.3
 
 ARG  VERSION=0.7.3-special-cn
 ARG  VCS_REF
+ARG  BUILD_DATE
 
 LABEL \
     maintainer="lonly197@qq.com" \
@@ -44,6 +45,6 @@ RUN   set -x \
     ## Cleanup
     && rm -rf *.tgz *.zip *.tar \
     && rm -rf /tmp/*
-
+    
 # Start Zeppelin Server
 CMD	 ${ZEPPELIN_HOME}/bin/zeppelin.sh run
