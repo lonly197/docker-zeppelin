@@ -23,7 +23,7 @@ Deployment options out of the box:
 ```bash
 docker build \
 --rm \
--t lonly/docker-zeppelin:0.7.3-special-cn \
+-t lonly/docker-zeppelin:0.7.3-cn-special \
 --build-arg VCS_REF=`git rev-parse --short HEAD` \
 --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` .
 ```
